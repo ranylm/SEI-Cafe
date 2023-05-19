@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { logout } from "../../utilities/users-service";
+import { logOut } from "../../utilities/users-service";
 
 type Props = {
   user: { username: string; email: string };
-  setUser: (a: { username: string; email; string }) => void;
+  setUser: (a: { username: string; email; string } | null) => void;
 };
 export default function NavBar({ user, setUser }: Props) {
   return (
@@ -14,7 +14,8 @@ export default function NavBar({ user, setUser }: Props) {
       {user ? (
         <span
           onClick={() => {
-            logout(setUser);
+            logOut();
+            setUser(null);
           }}
         >
           Log Out
