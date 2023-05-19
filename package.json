@@ -1,6 +1,9 @@
 {
   "scripts": {
-    "dev": "concurrently \"nodemon server.js\" \"pnpm --prefix ./client run dev\""
+    "dev": "concurrently \"nodemon server.js\" \"pnpm --prefix ./client run dev\"",
+    "seed": "node ./config/seed.js",
+    "prod-build": "cd ./client && npm run build",
+    "prod-start": "node server.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",

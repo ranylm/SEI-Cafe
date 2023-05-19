@@ -5,7 +5,6 @@ const SALT_ROUNDS = 6;
 module.exports = {
   create,
   login,
-  checkToken,
 };
 
 async function create(req, res) {
@@ -44,11 +43,6 @@ async function login(req, res) {
   }
 }
 
-function checkToken(req, res) {
-  // req.user will always be there for you when a token is sent
-  console.log("req.user", req.user);
-  res.json(req.exp);
-}
 /* Helper function*/
 function createJWT(user) {
   return jwt.sign({ user }, process.env.JWT_SECRET, { expiresIn: "24h" });
