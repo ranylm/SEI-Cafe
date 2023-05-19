@@ -10,9 +10,10 @@ const app = express();
 app.use(logger("dev"));
 app.use(express.json());
 
-app.use(function (req, res, next) {
-  setTimeout(next, 1000);
-});
+// latency test
+// app.use(function (req, res, next) {
+//   setTimeout(next, 1000);
+// });
 
 app.use(favicon(path.join(__dirname, "client", "dist", "vite.svg")));
 app.use(express.static(path.join(__dirname, "client", "dist")));
